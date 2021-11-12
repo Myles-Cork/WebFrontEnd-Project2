@@ -5,9 +5,11 @@ import React from 'react';
 class Guess extends React.Component{
 
   render(){
+    let num = this.props.number.toString();
+
     return(
       <div>
-        Guess
+        Guess {num}
       </div>
     );
   }

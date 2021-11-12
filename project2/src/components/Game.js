@@ -9,13 +9,16 @@ class Game extends React.Component{
 
   render(){
 
-    const gameSettings = {attempts: 12}
+    const guesses = [
+      {number:0,colors: [1,2,3,4]},
+      {number:1,colors: [1,4,4,4]}
+    ]
 
     return(
       <div>
         Game
         <ColorPicker/>
-        <GuessList/>
+        <GuessList guesses={guesses}/>
         <FlowBar/>
       </div>
     );

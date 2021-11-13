@@ -18,7 +18,7 @@ class ColorPeg extends React.Component{
 
     let colorindex = this.props.colorindex;
     let colorhex = colors[0];
-    
+
     if(colorindex < colors.length){
       colorhex = colors[colorindex];
     }
@@ -32,6 +32,17 @@ class ColorPeg extends React.Component{
       borderRadius: "50%"
     };
 
+    const fillselectedstyle = {
+      display:"inline-block",
+      margin:"1vh",
+      height:"4vh",
+      width:"4vh",
+      backgroundColor: colorhex,
+      borderRadius: "50%",
+      boxSizing: "border-box",
+      border:"0.75vh solid #555555"
+    };
+
     const emptystyle = {
       display:"inline-block",
       margin:"2vh",
@@ -39,12 +50,14 @@ class ColorPeg extends React.Component{
       width:"2vh",
       backgroundColor: "#555555",
       borderRadius: "50%"
-
     };
 
     let pegstyle = fillstyle;
     if(colorindex === -1){
       pegstyle = emptystyle;
+    }
+    if(this.props.selected === true){
+      pegstyle = fillselectedstyle;
     }
 
     return(

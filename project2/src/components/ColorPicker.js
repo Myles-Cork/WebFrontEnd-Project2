@@ -30,14 +30,14 @@ class ColorPicker extends React.Component{
     return(
       <div style={scrollareastyle}>
         <div style={pickerstyle}>
-          <ColorPeg colorindex={0}/>
-          <ColorPeg colorindex={1}/>
-          <ColorPeg colorindex={2}/>
-          <ColorPeg colorindex={3}/>
-          <ColorPeg colorindex={4}/>
-          <ColorPeg colorindex={5}/>
-          <ColorPeg colorindex={6}/>
-          <ColorPeg colorindex={7}/>
+          <ColorPeg colorindex={0} selected={true}/>
+          <ColorPeg colorindex={1} selected={false}/>
+          <ColorPeg colorindex={2} selected={false}/>
+          <ColorPeg colorindex={3} selected={false}/>
+          <ColorPeg colorindex={4} selected={false}/>
+          <ColorPeg colorindex={5} selected={false}/>
+          <ColorPeg colorindex={6} selected={false}/>
+          <ColorPeg colorindex={7} selected={false}/>
         </div>
       </div>
     );

@@ -7,4 +7,4 @@ A recreation of the ["Mastermind"](https://en.wikipedia.org/wiki/Mastermind_(boa
 ![Mock Up](images/project2sketch3.png)
 
 ## Component Breakdown
-![Component Breakdown](images/project2componentbreakdown.png)
+![Component Breakdown](images/project2componentbreakdown2.png)

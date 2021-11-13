@@ -5,12 +5,14 @@ import Guess from './Guess.js';
 
 class GuessList extends React.Component{
   render(){
+
+    const guessliststyle = {
+      backgroundColor:"#EEEEEE"
+    };
+
     return(
-      <div>
-        GuessList
-        <ul>
-          {this.props.guesses.map(guess => <Guess key={guess.number} number={guess.number}/>)}
-        </ul>
+      <div style={guessliststyle}>
+          {this.props.guesses.map(guess => <Guess key={guess.number} number={guess.number} colors={guess.colors}/>)}
       </div>
     );
   }

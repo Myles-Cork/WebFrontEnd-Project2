@@ -9,10 +9,10 @@ class Mastermind extends React.Component{
   render(){
 
     const gameSettings = {attempts: 12}
-
+    //Zhengyuan Zhang:made title centered on the page
     return(
       <div>
-        Mastermind
+        <h1 style={{backgroundColor:"#DDDDDD",textAlign:"center"}}>Mastermind</h1>
         <Settings/>
         <Game settings={gameSettings}/>
       </div>

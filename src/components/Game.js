@@ -8,7 +8,7 @@ import FlowBar from './FlowBar.js';
 class Game extends React.Component{
 
   render(){
-
+    
     const guesses = [
       {number:1,colors: [0,1,2,3]},
       {number:2,colors: [4,5,6,7]},
@@ -27,7 +27,8 @@ class Game extends React.Component{
     const pickerguessstyle = {
       display:"flex",
       flexDirection:"row",
-      width:"min-content"
+      width:"min-content",
+      margin:"auto"//Zhengyuan Zhang:I just made the central part stay center on the page.
     };
 
     return(
@@ -36,7 +37,7 @@ class Game extends React.Component{
           <ColorPicker/>
           <GuessList guesses={guesses}/>
         </div>
-        <FlowBar/>
+        <FlowBar progress="30%" EndGame="none"/>
       </div>
     );
   }

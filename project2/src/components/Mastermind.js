@@ -12,7 +12,7 @@ class Mastermind extends React.Component{
 
     return(
       <div>
-        Mastermind
+        <h1 style={{backgroundColor:"#DDDDDD",textAlign:"center"}}>Mastermind</h1>
         <Settings/>
         <Game settings={gameSettings}/>
       </div>

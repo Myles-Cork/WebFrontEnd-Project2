@@ -27,7 +27,8 @@ class Game extends React.Component{
     const pickerguessstyle = {
       display:"flex",
       flexDirection:"row",
-      width:"min-content"
+      width:"min-content",
+      margin:"auto"
     };
 
     return(
@@ -36,7 +37,7 @@ class Game extends React.Component{
           <ColorPicker/>
           <GuessList guesses={guesses}/>
         </div>
-        <FlowBar/>
+          <FlowBar progress="30%" EndGame="none"/>
       </div>
     );
   }

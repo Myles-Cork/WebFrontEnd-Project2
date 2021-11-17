@@ -29,7 +29,7 @@ State will be stored in two components:
   - The Game component's state and the following components it interacts with
     - Mastermind (Game will receive settings from Mastermind)
     - ColorPicker (Calling functions for changing selected color passed to it from Game. Updating the number of colors shown based on the number of possible colors setting passed to it from Game)
-    - GuessList and Guess (calling functions passed from Game to update state)
+    - GuessList and Guess (Calling functions passed from Game to update state)
 - Zhengyuan Zhang
   - The Mastermind component's state and the following components it interacts with
     - Settings (Receiving current state and functions for modifying from Mastermind. Calling functions when buttons are pressed)

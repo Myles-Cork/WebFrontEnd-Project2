@@ -5,10 +5,13 @@ import ColorPicker from './ColorPicker.js';
 import GuessList from './GuessList.js';
 import FlowBar from './FlowBar.js';
 
+//TODO: Receive settings from Mastermind
+//      Store state of game, add methods for modifying state
+//
+
 class Game extends React.Component{
 
   render(){
-
     const guesses = [
       {number:1,colors: [0,1,2,3]},
       {number:2,colors: [4,5,6,7]},
@@ -21,7 +24,7 @@ class Game extends React.Component{
       {number:9,colors: [-1,-1,-1,-1]},
       {number:10,colors: [-1,-1,-1,-1]},
       {number:11,colors: [-1,-1,-1,-1]},
-      {number:12,colors: [-1,-1,-1,-1]},
+      {number:12,colors: [-1,-1,-1,-1]}
     ]
 
     const pickerguessstyle = {
@@ -31,13 +34,14 @@ class Game extends React.Component{
       margin:"auto"
     };
 
+    // checkanswer will return a function 
     return(
       <div>
         <div style={pickerguessstyle}>
           <ColorPicker/>
           <GuessList guesses={guesses}/>
         </div>
-          <FlowBar progress="30%" EndGame="none"/>
+          <FlowBar checkanswer="temp" answerdisplay={[0,1,2,3]} progress="30%"/>
       </div>
     );
   }

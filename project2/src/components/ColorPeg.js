@@ -40,7 +40,7 @@ class ColorPeg extends React.Component{
       backgroundColor: colorhex,
       borderRadius: "50%",
       boxSizing: "border-box",
-      border:"0.75vh solid #555555"
+      border:"0.75vh solid #777777"
     };
 
     const emptystyle = {
@@ -64,6 +64,11 @@ class ColorPeg extends React.Component{
       <div style={pegstyle}/>
     );
   }
+
+  // callpeg(){
+  //   this.props.addpeg(this.props.loc);
+  //
+  // }
 }
 
 export default ColorPeg

@@ -36,7 +36,7 @@ class Guess extends React.Component{
       border:"0.2vh solid #555555",
       width:"max-content",
       justifyContent:"center"
-    }
+    };
 
     const numcontainerstyle = {
       marginLeft: "1vh",
@@ -46,7 +46,11 @@ class Guess extends React.Component{
       textAlign: "center",
       width: "2.5em",
       fontSize: "2vh"
-    }
+    };
+
+    const pegcontainerstyle = {
+      display: "flex"
+    };
 
     const hitmissstyle = {
       marginLeft: "1vh",
@@ -54,8 +58,7 @@ class Guess extends React.Component{
       marginTop: "auto",
       marginBottom: "auto",
       fontSize: "1.8vh"
-    }
-
+    };
 
     let num = this.props.number.toString();
 
@@ -63,14 +66,14 @@ class Guess extends React.Component{
         <div style={guesscontainerstyle}>
           <span style={numcontainerstyle}>{num}</span>
           <div style={guessstyle}>
-            <ColorPeg colorindex={this.props.colors[0]}/>
-            <ColorPeg colorindex={this.props.colors[1]}/>
-            <ColorPeg colorindex={this.props.colors[2]}/>
-            <ColorPeg colorindex={this.props.colors[3]}/>
+            <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(0,num)}><ColorPeg colorindex={this.props.colors[0]}/></div>
+            <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(1,num)}><ColorPeg colorindex={this.props.colors[1]}/></div>
+            <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(2,num)}><ColorPeg colorindex={this.props.colors[2]}/></div>
+            <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(3,num)}><ColorPeg colorindex={this.props.colors[3]}/></div>
           </div>
           <div style={hitmisscontainerstyle}>
-            <span style={hitmissstyle}>Hits: 0</span>
-            <span style={hitmissstyle}>Misses: 0</span>
+            <span style={hitmissstyle}>Hits: {this.props.hits}</span>
+            <span style={hitmissstyle}>Misses: {this.props.misses}</span>
           </div>
       </div>
     );

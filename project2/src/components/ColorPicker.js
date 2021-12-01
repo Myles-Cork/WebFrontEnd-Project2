@@ -27,17 +27,21 @@ class ColorPicker extends React.Component{
       backgroundColor:"#DDDDDD"
     };
 
+    const pegcontainerstyle = {
+      display: "flex"
+    };
+
     return(
       <div style={scrollareastyle}>
         <div style={pickerstyle}>
-          <ColorPeg colorindex={0} selected={true}/>
-          <ColorPeg colorindex={1} selected={false}/>
-          <ColorPeg colorindex={2} selected={false}/>
-          <ColorPeg colorindex={3} selected={false}/>
-          <ColorPeg colorindex={4} selected={false}/>
-          <ColorPeg colorindex={5} selected={false}/>
-          <ColorPeg colorindex={6} selected={false}/>
-          <ColorPeg colorindex={7} selected={false}/>
+          <div style={pegcontainerstyle} onClick={()=>this.props.select(0)}><ColorPeg colorindex={0} selected={this.props.selectedcolor===0}/></div>
+          <div style={pegcontainerstyle} onClick={()=>this.props.select(1)}><ColorPeg colorindex={1} selected={this.props.selectedcolor===1}/></div>
+          <div style={pegcontainerstyle} onClick={()=>this.props.select(2)}><ColorPeg colorindex={2} selected={this.props.selectedcolor===2}/></div>
+          <div style={pegcontainerstyle} onClick={()=>this.props.select(3)}><ColorPeg colorindex={3} selected={this.props.selectedcolor===3}/></div>
+          <div style={pegcontainerstyle} onClick={()=>this.props.select(4)}><ColorPeg colorindex={4} selected={this.props.selectedcolor===4}/></div>
+          <div style={pegcontainerstyle} onClick={()=>this.props.select(5)}><ColorPeg colorindex={5} selected={this.props.selectedcolor===5}/></div>
+          <div style={pegcontainerstyle} onClick={()=>this.props.select(6)}><ColorPeg colorindex={6} selected={this.props.selectedcolor===6}/></div>
+          <div style={pegcontainerstyle} onClick={()=>this.props.select(7)}><ColorPeg colorindex={7} selected={this.props.selectedcolor===7}/></div>
         </div>
       </div>
     );

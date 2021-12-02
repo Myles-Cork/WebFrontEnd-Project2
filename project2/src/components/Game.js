@@ -5,9 +5,6 @@ import ColorPicker from './ColorPicker.js';
 import GuessList from './GuessList.js';
 import FlowBar from './FlowBar.js';
 
-//TODO: Receive settings from Mastermind
-//      Store state of game, add methods for modifying state
-//
 
 class Game extends React.Component{
 
@@ -80,6 +77,21 @@ class Game extends React.Component{
             guesses: newguess
           }
         );
+      }
+
+      if(this.props.settings.autocheck){
+        // check if all pegs are placed in guess for auto check
+        let g = this.state.guesses[guessnum-1].colors;
+        let ctg = this.props.settings.colorstoguess;
+        let pc = this.props.settings.possiblecolors;
+        let filled = true;
+        for(let p=0; p<ctg; p++){
+          if(g[p]===-1){
+            filled = false;
+            break;
+          }
+        }
+        if(filled) this.checkAnswer();
       }
     }
   }

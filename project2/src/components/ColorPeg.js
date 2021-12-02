@@ -64,11 +64,6 @@ class ColorPeg extends React.Component{
       <div style={pegstyle}/>
     );
   }
-
-  // callpeg(){
-  //   this.props.addpeg(this.props.loc);
-  //
-  // }
 }
 
 export default ColorPeg

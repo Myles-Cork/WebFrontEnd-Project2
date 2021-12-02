@@ -36,17 +36,35 @@ class Guess extends React.Component{
       border:"0.2vh solid #555555",
       width:"max-content",
       justifyContent:"center"
-    }
+    };
 
-    const numcontainerstyle = {
+    const numcontainerstyleunselected = {
       marginLeft: "1vh",
       marginRight: "1vh",
       marginTop: "auto",
       marginBottom: "auto",
       textAlign: "center",
       width: "2.5em",
-      fontSize: "2vh"
-    }
+      fontSize: "2vh",
+      backgroundColor: "transparent",
+      borderRadius: "1vh"
+    };
+
+    const numcontainerstyleselected = {
+      marginLeft: "1vh",
+      marginRight: "1vh",
+      marginTop: "auto",
+      marginBottom: "auto",
+      textAlign: "center",
+      width: "2.5em",
+      fontSize: "2vh",
+      backgroundColor: "#999999",
+      borderRadius: "1vh"
+    };
+
+    const pegcontainerstyle = {
+      display: "flex"
+    };
 
     const hitmissstyle = {
       marginLeft: "1vh",
@@ -54,23 +72,29 @@ class Guess extends React.Component{
       marginTop: "auto",
       marginBottom: "auto",
       fontSize: "1.8vh"
+    };
+
+    let num = this.props.number;
+
+    let colors = this.props.colors;
+    let numcolors = colors.length;
+    let indexes = new Array(numcolors);
+    for(let i = 0; i < numcolors; i++) indexes[i]=i;
+
+    let numcontainerstyle= numcontainerstyleunselected;
+    if(num === this.props.currentguess){
+      numcontainerstyle = numcontainerstyleselected;
     }
-
-
-    let num = this.props.number.toString();
 
     return(
         <div style={guesscontainerstyle}>
           <span style={numcontainerstyle}>{num}</span>
           <div style={guessstyle}>
-            <ColorPeg colorindex={this.props.colors[0]}/>
-            <ColorPeg colorindex={this.props.colors[1]}/>
-            <ColorPeg colorindex={this.props.colors[2]}/>
-            <ColorPeg colorindex={this.props.colors[3]}/>
+            {indexes.map(index => <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(index,num)}><ColorPeg colorindex={colors[index]}/></div>)}
           </div>
           <div style={hitmisscontainerstyle}>
-            <span style={hitmissstyle}>Hits: 0</span>
-            <span style={hitmissstyle}>Misses: 0</span>
+            <span style={hitmissstyle}>Hits: {this.props.hits}</span>
+            <span style={hitmissstyle}>Misses: {this.props.misses}</span>
           </div>
       </div>
     );

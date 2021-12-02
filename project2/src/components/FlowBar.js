@@ -32,7 +32,7 @@ class FlowBar extends React.Component{
             </div>
         </div>
         <div style={{width:"30%",boxSizing:"border-box",margin:"0% 0%"}}>
-          <button type="button" id="checkButton" style={{position:"relative",float:"center"}}>Check the result</button>
+          <button type="button" id="checkButton" style={{position:"relative",float:"center"}} onClick={this.props.checkanswer}>Check the result</button>
         </div>
       </div>
     );

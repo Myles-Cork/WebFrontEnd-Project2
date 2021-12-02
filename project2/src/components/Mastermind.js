@@ -8,16 +8,22 @@ class Mastermind extends React.Component{
 
   render(){
 
-    const gameSettings = {attempts: 12}
+    const gameSettings = {
+      colorstoguess: 4,
+      possiblecolors: 8,
+      attempts: 12,
+      reset: false
+    }
 
     return(
       <div>
         <h1 style={{backgroundColor:"#DDDDDD",textAlign:"center"}}>Mastermind</h1>
         <Settings/>
-        <Game settings={gameSettings}/>
+        <Game settings={gameSettings} reset={"this.state.reset"}/>
       </div>
     );
   }
+
 }
 
 export default Mastermind

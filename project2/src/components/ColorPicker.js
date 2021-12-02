@@ -27,17 +27,18 @@ class ColorPicker extends React.Component{
       backgroundColor:"#DDDDDD"
     };
 
+    const pegcontainerstyle = {
+      display: "flex"
+    };
+
+    let pc = this.props.possiblecolors;
+    let colors = new Array(pc);
+    for(let i = 0; i < pc; i++) colors[i]=i;
+
     return(
       <div style={scrollareastyle}>
         <div style={pickerstyle}>
-          <ColorPeg colorindex={0} selected={true}/>
-          <ColorPeg colorindex={1} selected={false}/>
-          <ColorPeg colorindex={2} selected={false}/>
-          <ColorPeg colorindex={3} selected={false}/>
-          <ColorPeg colorindex={4} selected={false}/>
-          <ColorPeg colorindex={5} selected={false}/>
-          <ColorPeg colorindex={6} selected={false}/>
-          <ColorPeg colorindex={7} selected={false}/>
+          {colors.map(color => <div style={pegcontainerstyle} onClick={()=>this.props.select(color)}><ColorPeg colorindex={color} selected={this.props.selectedcolor===color}/></div>)}
         </div>
       </div>
     );

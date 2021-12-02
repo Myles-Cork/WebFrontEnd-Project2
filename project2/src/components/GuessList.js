@@ -12,7 +12,7 @@ class GuessList extends React.Component{
 
     return(
       <div style={guessliststyle}>
-          {this.props.guesses.map(guess => <Guess key={guess.number} number={guess.number} colors={guess.colors} hits={guess.hits} misses={guess.misses} addpeg={this.props.addpeg}/>)}
+          {this.props.guesses.map(guess => <Guess key={guess.number} number={guess.number} currentguess={this.props.currentguess} colors={guess.colors} hits={guess.hits} misses={guess.misses} addpeg={this.props.addpeg}/>)}
       </div>
     );
   }

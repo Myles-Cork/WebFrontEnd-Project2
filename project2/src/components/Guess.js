@@ -38,14 +38,28 @@ class Guess extends React.Component{
       justifyContent:"center"
     };
 
-    const numcontainerstyle = {
+    const numcontainerstyleunselected = {
       marginLeft: "1vh",
       marginRight: "1vh",
       marginTop: "auto",
       marginBottom: "auto",
       textAlign: "center",
       width: "2.5em",
-      fontSize: "2vh"
+      fontSize: "2vh",
+      backgroundColor: "transparent",
+      borderRadius: "1vh"
+    };
+
+    const numcontainerstyleselected = {
+      marginLeft: "1vh",
+      marginRight: "1vh",
+      marginTop: "auto",
+      marginBottom: "auto",
+      textAlign: "center",
+      width: "2.5em",
+      fontSize: "2vh",
+      backgroundColor: "#999999",
+      borderRadius: "1vh"
     };
 
     const pegcontainerstyle = {
@@ -60,16 +74,23 @@ class Guess extends React.Component{
       fontSize: "1.8vh"
     };
 
-    let num = this.props.number.toString();
+    let num = this.props.number;
+
+    let colors = this.props.colors;
+    let numcolors = colors.length;
+    let indexes = new Array(numcolors);
+    for(let i = 0; i < numcolors; i++) indexes[i]=i;
+
+    let numcontainerstyle= numcontainerstyleunselected;
+    if(num === this.props.currentguess){
+      numcontainerstyle = numcontainerstyleselected;
+    }
 
     return(
         <div style={guesscontainerstyle}>
           <span style={numcontainerstyle}>{num}</span>
           <div style={guessstyle}>
-            <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(0,num)}><ColorPeg colorindex={this.props.colors[0]}/></div>
-            <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(1,num)}><ColorPeg colorindex={this.props.colors[1]}/></div>
-            <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(2,num)}><ColorPeg colorindex={this.props.colors[2]}/></div>
-            <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(3,num)}><ColorPeg colorindex={this.props.colors[3]}/></div>
+            {indexes.map(index => <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(index,num)}><ColorPeg colorindex={colors[index]}/></div>)}
           </div>
           <div style={hitmisscontainerstyle}>
             <span style={hitmissstyle}>Hits: {this.props.hits}</span>

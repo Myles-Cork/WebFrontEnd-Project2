@@ -201,13 +201,33 @@ class Game extends React.Component{
   }
 
   render(){
+
     const pickerguessstyle = {
       display:"flex",
       flexDirection:"row",
       width:"min-content",
-      margin:"auto"
+      margin:"auto",
+      pointerEvents:"auto"
     };
-
+    if(this.props.settings.reset){
+       console.log("hello world!");
+        let attempts = this.props.settings.attempts;
+        let guesses = this.getResetGuesses();
+        let answer = this.getNewAnswer();
+    
+        let colorstoguess = this.props.settings.colorstoguess;
+        let answerdisplay = new Array(colorstoguess);
+        for (let i=0; i<colorstoguess; i++) answerdisplay[i]=-1;
+    
+        this.state={
+          currentguessnum: 1,
+          selectedcolor: 0,
+          guesses: guesses,
+          answer: answer,
+          answerdisplay: answerdisplay,
+          end: false
+        };
+    }
     return(
       <div>
         <div style={pickerguessstyle}>

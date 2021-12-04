@@ -5,22 +5,40 @@ import Settings from './Settings.js';
 import Game from './Game.js';
 
 class Mastermind extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      gameSettings:
+      {colorstoguess:4,
+        possiblecolors:8,
+        attempts:12,
+        autoCheck:false,
+        Reset:"auto",
+        reset:true}
+      };
+    this.startGameCondition = this.startGameCondition.bind(this);
+    this.toggelReset = this.toggelReset(this);
+  }
+
+  startGameCondition(color,possible,attempt,autoCheck,Reset,reset){
+    this.setState({gameSettings:{colorstoguess:color,possiblecolors:possible,attempts:attempt,autoCheck:autoCheck,Reset:Reset,reset:false}});
+    console.log("this is start")
+    console.log(this.state);
+  }
+
+  toggelReset(color,possible,attempt,autoCheck,Reset,reset){
+    console.log("this is stop");
+    console.log(this.state);
+    this.setState({gameSettings:{colorstoguess:color,possiblecolors:possible,attempts:attempt,autoCheck:autoCheck,Reset:Reset,reset:false}});
+  }
 
   render(){
-
-    const gameSettings = {
-      colorstoguess: 4,
-      possiblecolors: 8,
-      attempts: 12,
-      autocheck: false,
-      reset: false
-    }
-
     return(
       <div>
         <h1 style={{backgroundColor:"#DDDDDD",textAlign:"center"}}>Mastermind</h1>
-        <Settings/>
-        <Game settings={gameSettings}/>
+        <Settings startGameCondition = {this.startGameCondition} stopGame = {this.toggelReset}/>
+        <Game settings={this.state.gameSettings}/>
+        {/* https://stackoverflow.com/questions/30041111/is-there-a-way-in-which-i-can-ignore-touch-events-on-text-in-react-native */}
       </div>
     );
   }

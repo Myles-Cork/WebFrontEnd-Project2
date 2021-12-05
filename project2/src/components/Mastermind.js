@@ -12,25 +12,23 @@ class Mastermind extends React.Component{
       {colorstoguess:4,
         possiblecolors:8,
         attempts:12,
-        autoCheck:false,
-        Reset:"auto",
-        reset:true}
+        autoCheck:true,
+        reset:false}
       };
-    this.startGameCondition = this.startGameCondition.bind(this);
     this.toggelReset = this.toggelReset.bind(this);
+    this.toggelReset1 = this.toggelReset1.bind(this);
   }
 
-  startGameCondition(color,possible,attempt,autoCheck,Reset,reset){
-    this.setState({gameSettings:{colorstoguess:color,possiblecolors:possible,attempts:attempt,autoCheck:autoCheck,Reset:Reset,reset:reset}});
-    console.log("this is start")
-    console.log(this.state);
-  }
-
-  toggelReset(color,possible,attempt,autoCheck,Reset,reset){
-    console.log("this is stop");
+  toggelReset(color,possible,attempt){
     console.log(this.state);
     let toggledreset = !this.state.gameSettings.reset;
-    this.setState({gameSettings:{colorstoguess:color,possiblecolors:possible,attempts:attempt,autoCheck:autoCheck,Reset:Reset,reset:toggledreset}});
+    this.setState({gameSettings:{colorstoguess:color,possiblecolors:possible,attempts:attempt,reset:toggledreset}});
+  }
+
+  toggelReset1(){
+    console.log(this.state);
+    let toggledreset = !this.state.gameSettings.reset;
+    this.setState({gameSettings:{reset:toggledreset}});
   }
 
   render(){
@@ -38,7 +36,7 @@ class Mastermind extends React.Component{
       <div>
         <h1 style={{backgroundColor:"#DDDDDD",textAlign:"center"}}>Mastermind</h1>
         <Settings startGameCondition = {this.startGameCondition} toggelReset = {this.toggelReset}/>
-        <Game settings={this.state.gameSettings} toggelReset = {this.toggelReset}/>
+        <Game settings={this.state.gameSettings} toggelReset = {this.toggelReset1}/>
         {/* https://stackoverflow.com/questions/30041111/is-there-a-way-in-which-i-can-ignore-touch-events-on-text-in-react-native */}
       </div>
     );

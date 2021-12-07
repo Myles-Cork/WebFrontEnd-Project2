@@ -36,17 +36,18 @@ class Settings extends React.Component{
       <div style={style}>
           <fieldset style={fieldSetColor}>
           <legend>Description/Objective</legend>
-          <p>Mastermind or Master Mind is a code-breaking game for two players.
-            The modern game with pegs was invented in 1970 by Mordecai Meirowitz,
-            an Israeli postmaster and telecommunications expert.[1][2] It resembles an earlier pencil
-            and paper game called Bulls and Cows that may date back a century.</p>
-            <ol>
-              <li>a decoding board, with a shield at one end covering a row of four large holes,
-                and twelve (or ten, or eight, or six) additional rows containing four large holes next to a set of four small holes</li>
-              <li>code pegs of six different colors (or more; see Variations below),
-                with round heads, which will be placed in the large holes on the board</li>
-              <li>key pegs, some colored black, some white, which are flat-headed and smaller than the code pegs; they will be placed in the small holes on the board.</li>
-          </ol>
+          <p>Guess the correct permutation of colors before you run out of attempts!</p>
+          <p>Click on a color from the left panel to select a color to place.
+          Click one of the spots in the current guess row to the right to enter the color into the guess.
+          Fill the row and press “Check the Result” to see if you’re correct.
+          If you are, the correct answer will be displayed at the bottom of the page.
+          If not, see the number of "Hits" and "Misses" to the right of the guess to narrow down your next guesses.</p>
+          <ul>
+            <li>Hits are the number of colors in the same position as the answer.</li>
+            <li>Misses are the number of colors in the guess that are in the answer, but in the wrong position.</li>
+          </ul>
+          <p>The answer will be randomly generated from the possible colors, duplicates allowed.</p>
+          <p>Change the game settings to customize the difficulty or enable auto check to enter a guess once a row is filled.</p>
           </fieldset>
           <fieldset style={fieldSetColor}>
             <legend>Game Settings</legend>

@@ -5,23 +5,14 @@ import React from 'react';
 class Settings extends React.Component{
   constructor(props){
     super(props);
-    this.handleChange = this.handleChange.bind(this);
     this.handleChangeStop = this.handleChangeStop.bind(this);
-  }
-
-
-  handleChange(){
-    let newOption1 = document.getElementById("colorGuessMenu").value;
-    let newOption2 = document.getElementById("possibleColor").value;
-    let newOption3 = document.getElementById("attemptAmount").value;
-    this.props.startGameCondition(parseInt(newOption1),parseInt(newOption2),parseInt(newOption3),false,"auto",false);
   }
 
   handleChangeStop(){
     let newOption1 = document.getElementById("colorGuessMenu").value;
     let newOption2 = document.getElementById("possibleColor").value;
     let newOption3 = document.getElementById("attemptAmount").value;
-    this.props.stopGame(parseInt(newOption1),parseInt(newOption2),parseInt(newOption3),false,"auto",true);
+    this.props.toggelReset(parseInt(newOption1),parseInt(newOption2),parseInt(newOption3));
   }
 
   render(){
@@ -86,7 +77,7 @@ class Settings extends React.Component{
             <div style={settingItemStyle}>
             <label htlmfor="attemptAmount">Attempts</label>
             <select name="attemptAmount" id="attemptAmount" defaultValue = {12}>
-              <option value="1">1</option> 
+              <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -101,8 +92,7 @@ class Settings extends React.Component{
             </select>
             </div>
             <div style={settingItemStyle}>
-              <button type="button" onClick={this.handleChange} id="startButton">Start!</button>
-              <button type="button" onClick={this.handleChangeStop} id="stopButton">Stop!</button>
+              <button type="button" onClick={this.handleChangeStop} id="stopButton">Save Settings!</button>
             </div>
           </fieldset>
       </div>

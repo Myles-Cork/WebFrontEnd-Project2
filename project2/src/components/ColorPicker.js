@@ -38,7 +38,7 @@ class ColorPicker extends React.Component{
     return(
       <div style={scrollareastyle}>
         <div style={pickerstyle}>
-          {colors.map(color => <div style={pegcontainerstyle} onClick={()=>this.props.select(color)}><ColorPeg colorindex={color} selected={this.props.selectedcolor===color}/></div>)}
+          {colors.map(color => <div key={color} style={pegcontainerstyle} onClick={()=>this.props.select(color)}><ColorPeg colorindex={color} selected={this.props.selectedcolor===color}/></div>)}
         </div>
       </div>
     );

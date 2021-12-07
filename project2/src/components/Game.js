@@ -15,12 +15,18 @@ class Game extends React.Component{
     let guesses = this.getResetGuesses();
     let answer = this.getNewAnswer();
 
+    let possiblecolors = this.props.settings.possiblecolors;
     let colorstoguess = this.props.settings.colorstoguess;
+    let autoCheck = this.props.settings.autoCheck;
     let answerdisplay = new Array(colorstoguess);
     for (let i=0; i<colorstoguess; i++) answerdisplay[i]=-1;
 
     this.state={
       currentguessnum: 1,
+      possiblecolors: possiblecolors,
+      colorstoguess: colorstoguess,
+      autoCheck: autoCheck,
+      attempts: attempts,
       selectedcolor: 0,
       guesses: guesses,
       answer: answer,
@@ -79,11 +85,11 @@ class Game extends React.Component{
         );
       }
 
-      if(this.props.settings.autocheck){
+      if(this.state.autoCheck){
         // check if all pegs are placed in guess for auto check
         let g = this.state.guesses[guessnum-1].colors;
-        let ctg = this.props.settings.colorstoguess;
-        let pc = this.props.settings.possiblecolors;
+        let ctg = this.state.colorstoguess;
+        let pc = this.state.possiblecolors;
         let filled = true;
         for(let p=0; p<ctg; p++){
           if(g[p]===-1){
@@ -111,11 +117,11 @@ class Game extends React.Component{
     let newguesses = this.state.guesses;
 
     if(!this.state.end){
-      let attempts = this.props.settings.attempts;
+      let attempts = this.state.attempts;
       let g = this.state.guesses[guessindex].colors;
       let a = this.state.answer;
-      let ctg = this.props.settings.colorstoguess;
-      let pc = this.props.settings.possiblecolors;
+      let ctg = this.state.colorstoguess;
+      let pc = this.state.possiblecolors;
 
       // check if all pegs are placed in guess
       let filled = true;
@@ -231,12 +237,42 @@ class Game extends React.Component{
     return(
       <div>
         <div style={pickerguessstyle}>
-          <ColorPicker selectedcolor={this.state.selectedcolor} select={this.selectColor} possiblecolors={this.props.settings.possiblecolors}/>
+          <ColorPicker selectedcolor={this.state.selectedcolor} select={this.selectColor} possiblecolors={this.state.possiblecolors}/>
           <GuessList guesses={this.state.guesses} currentguess={this.state.currentguessnum} addpeg={this.addPeg}/>
         </div>
           <FlowBar checkanswer={this.checkAnswer} answerdisplay={this.state.answerdisplay} progress="30%"/>
       </div>
     );
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot){
+    if(this.props.settings.reset){
+      this.props.toggelReset();
+        let attempts = this.props.settings.attempts;
+        let guesses = this.getResetGuesses();
+        let answer = this.getNewAnswer();
+
+        let possiblecolors = this.props.settings.possiblecolors;
+        let colorstoguess = this.props.settings.colorstoguess;
+        let autoCheck = this.props.settings.autoCheck;
+        let answerdisplay = new Array(colorstoguess);
+        for (let i=0; i<colorstoguess; i++) answerdisplay[i]=-1;
+
+        this.setState({
+          currentguessnum: 1,
+          possiblecolors: possiblecolors,
+          colorstoguess: colorstoguess,
+          autoCheck: autoCheck,
+          attempts: attempts,
+          selectedcolor: 0,
+          guesses: guesses,
+          answer: answer,
+          answerdisplay: answerdisplay,
+          end: false
+        });
+
+        console.log(this.state);
+    }
   }
 }
 

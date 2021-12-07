@@ -90,7 +90,7 @@ class Guess extends React.Component{
         <div style={guesscontainerstyle}>
           <span style={numcontainerstyle}>{num}</span>
           <div style={guessstyle}>
-            {indexes.map(index => <div style={pegcontainerstyle} onClick={()=>this.props.addpeg(index,num)}><ColorPeg colorindex={colors[index]}/></div>)}
+            {indexes.map(index => <div key={index} style={pegcontainerstyle} onClick={()=>this.props.addpeg(index,num)}><ColorPeg colorindex={colors[index]}/></div>)}
           </div>
           <div style={hitmisscontainerstyle}>
             <span style={hitmissstyle}>Hits: {this.props.hits}</span>

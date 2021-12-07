@@ -5,23 +5,15 @@ import React from 'react';
 class Settings extends React.Component{
   constructor(props){
     super(props);
-    this.handleChange = this.handleChange.bind(this);
     this.handleChangeStop = this.handleChangeStop.bind(this);
-  }
-
-
-  handleChange(){
-    let newOption1 = document.getElementById("colorGuessMenu").value;
-    let newOption2 = document.getElementById("possibleColor").value;
-    let newOption3 = document.getElementById("attemptAmount").value;
-    this.props.startGameCondition(parseInt(newOption1),parseInt(newOption2),parseInt(newOption3),false,"auto",false);
   }
 
   handleChangeStop(){
     let newOption1 = document.getElementById("colorGuessMenu").value;
     let newOption2 = document.getElementById("possibleColor").value;
     let newOption3 = document.getElementById("attemptAmount").value;
-    this.props.stopGame(parseInt(newOption1),parseInt(newOption2),parseInt(newOption3),false,"auto",true);
+    let newOption4 = document.getElementById("autoCheck").value;
+    this.props.toggelReset(parseInt(newOption1),parseInt(newOption2),parseInt(newOption3),parseInt(newOption4));
   }
 
   render(){
@@ -66,6 +58,10 @@ class Settings extends React.Component{
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
             </select>
             </div>
             <br/>
@@ -86,7 +82,7 @@ class Settings extends React.Component{
             <div style={settingItemStyle}>
             <label htlmfor="attemptAmount">Attempts</label>
             <select name="attemptAmount" id="attemptAmount" defaultValue = {12}>
-              <option value="1">1</option> 
+              <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -98,11 +94,20 @@ class Settings extends React.Component{
               <option value="10">10</option>
               <option value="11">11</option>
               <option value="12">12</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
+            </div>
+            <br/>
+            <div style={settingItemStyle}>
+            <label htlmfor="autoCheck">Auto Check</label>
+            <select name="autoCheck" id="autoCheck" defaultValue = {1}>
+              <option value="1">on</option>
+              <option value="0">off</option>
             </select>
             </div>
             <div style={settingItemStyle}>
-              <button type="button" onClick={this.handleChange} id="startButton">Start!</button>
-              <button type="button" onClick={this.handleChangeStop} id="stopButton">Stop!</button>
+              <button type="button" onClick={this.handleChangeStop} id="stopButton">Save Settings!</button>
             </div>
           </fieldset>
       </div>

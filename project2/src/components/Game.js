@@ -254,6 +254,45 @@ class Game extends React.Component{
 
         console.log(this.state);
     }
+    return(
+      <div>
+        <div style={pickerguessstyle}>
+          <ColorPicker selectedcolor={this.state.selectedcolor} select={this.selectColor} possiblecolors={this.state.possiblecolors}/>
+          <GuessList guesses={this.state.guesses} currentguess={this.state.currentguessnum} addpeg={this.addPeg}/>
+        </div>
+          <FlowBar checkanswer={this.checkAnswer} answerdisplay={this.state.answerdisplay} progress="30%"/>
+      </div>
+    );
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot){
+    if(this.props.settings.reset){
+      this.props.toggelReset();
+        let attempts = this.props.settings.attempts;
+        let guesses = this.getResetGuesses();
+        let answer = this.getNewAnswer();
+
+        let possiblecolors = this.props.settings.possiblecolors;
+        let colorstoguess = this.props.settings.colorstoguess;
+        let autoCheck = this.props.settings.autoCheck;
+        let answerdisplay = new Array(colorstoguess);
+        for (let i=0; i<colorstoguess; i++) answerdisplay[i]=-1;
+
+        this.setState({
+          currentguessnum: 1,
+          possiblecolors: possiblecolors,
+          colorstoguess: colorstoguess,
+          autoCheck: autoCheck,
+          attempts: attempts,
+          selectedcolor: 0,
+          guesses: guesses,
+          answer: answer,
+          answerdisplay: answerdisplay,
+          end: false
+        });
+
+        console.log(this.state);
+    }
   }
 }
 

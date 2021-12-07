@@ -19,10 +19,10 @@ class Mastermind extends React.Component{
     this.toggelReset1 = this.toggelReset1.bind(this);
   }
 
-  toggelReset(color,possible,attempt){
+  toggelReset(color,possible,attempt,autoCheck){
     console.log(this.state);
     let toggledreset = !this.state.gameSettings.reset;
-    this.setState({gameSettings:{colorstoguess:color,possiblecolors:possible,attempts:attempt,reset:toggledreset}});
+    this.setState({gameSettings:{colorstoguess:color,possiblecolors:possible,attempts:attempt,reset:toggledreset, autoCheck:autoCheck}});
   }
 
   toggelReset1(){

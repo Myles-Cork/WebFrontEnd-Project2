@@ -12,7 +12,8 @@ class Settings extends React.Component{
     let newOption1 = document.getElementById("colorGuessMenu").value;
     let newOption2 = document.getElementById("possibleColor").value;
     let newOption3 = document.getElementById("attemptAmount").value;
-    this.props.toggelReset(parseInt(newOption1),parseInt(newOption2),parseInt(newOption3));
+    let newOption4 = document.getElementById("autoCheck").value;
+    this.props.toggelReset(parseInt(newOption1),parseInt(newOption2),parseInt(newOption3),parseInt(newOption4));
   }
 
   render(){

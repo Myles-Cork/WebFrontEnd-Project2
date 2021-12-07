@@ -215,14 +215,13 @@ class Game extends React.Component{
       margin:"auto",
       pointerEvents:"auto"
     };
-
     return(
       <div>
         <div style={pickerguessstyle}>
           <ColorPicker selectedcolor={this.state.selectedcolor} select={this.selectColor} possiblecolors={this.state.possiblecolors}/>
           <GuessList guesses={this.state.guesses} currentguess={this.state.currentguessnum} addpeg={this.addPeg}/>
         </div>
-          <FlowBar checkanswer={this.checkAnswer} answerdisplay={this.state.answerdisplay} progress="30%"/>
+          <FlowBar checkanswer={this.checkAnswer} answerdisplay={this.state.answerdisplay}/>
       </div>
     );
   }

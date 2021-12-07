@@ -6,7 +6,7 @@ import Game from './Game.js';
 
 class Mastermind extends React.Component{
   constructor(props){
-    super(props);
+    super(props)
     this.state={
       gameSettings:
       {colorstoguess:4,

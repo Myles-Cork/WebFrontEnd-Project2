@@ -16,24 +16,17 @@ class FlowBar extends React.Component{
       width:this.props.progress,
       backgroundColor:"red"
     }
+    var count = 0
+    console.log(this.props.answerdisplay)
     return(
-      <div style={{textAlign:"center",width:"70%",margin:"auto",display:"flex",flexDirection:"row",flexWrap:"wrap"}}>
-        <div style={{width:"100%"}}>Progress Bar</div>
-        <div className="container" style={{width:"70%",margin:"0% 0%"}}>
-          <div style={flowBarBackGround}>
-              <div style={flowBarforeGround}>
-              </div>
-              <div>
-                <ColorPeg colorindex={this.props.answerdisplay[0]}/>
-                <ColorPeg colorindex={this.props.answerdisplay[1]}/>
-                <ColorPeg colorindex={this.props.answerdisplay[2]}/>
-                <ColorPeg colorindex={this.props.answerdisplay[3]}/>
-              </div>
-            </div>
-        </div>
-        <div style={{width:"30%",boxSizing:"border-box",margin:"0% 0%"}}>
-          <button type="button" id="checkButton" style={{position:"relative",float:"center"}} onClick={this.props.checkanswer}>Check the result</button>
-        </div>
+      <div style={{width:"fit-content",display:"flex",margin:"auto"}}>
+        <fieldset style={{width:"fit-content",marginLeft:"10vh"}}>
+          <legend style={{padding:"0px 0px"}}>Answer</legend>
+          {this.props.answerdisplay.map(eachColorPeg=><ColorPeg colorindex={eachColorPeg}/>)}
+        </fieldset>
+        <span>
+          <button type="button" id="checkButton" style={{marginTop:"3vh"}} onClick={this.props.checkanswer}>Check the result</button>
+        </span>
       </div>
     );
   }

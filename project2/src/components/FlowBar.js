@@ -18,12 +18,12 @@ class FlowBar extends React.Component{
     }
 
     var count = 0
-    console.log(this.props.answerdisplay)
+    //console.log(this.props.answerdisplay)
     return(
       <div style={{width:"fit-content",display:"flex",margin:"1vh auto 1vh auto", backgroundColor:"#EEEEEE", padding:"1vh"}}>
         <fieldset style={{width:"fit-content",marginLeft:"10vh",backgroundColor:"#DDDDDD"}}>
           <legend style={{padding:"0px 0px"}}>Answer</legend>
-          {this.props.answerdisplay.map(eachColorPeg=><ColorPeg colorindex={eachColorPeg}/>)}
+          {this.props.answerdisplay.map(eachColorPeg=><ColorPeg key={count++} colorindex={eachColorPeg}/>)}
         </fieldset>
         <span>
           <button type="button" id="checkButton" style={{margin:"1.5vh 1vh auto 1vh", width:"min-content"}} onClick={this.props.checkanswer}>Check the result</button>

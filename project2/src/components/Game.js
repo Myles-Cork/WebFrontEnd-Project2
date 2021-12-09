@@ -51,7 +51,7 @@ class Game extends React.Component{
     for (let i=0; i<colorstoguess; i++) newAnswer[i]=Math.floor(Math.random()*(possiblecolors));
 
     //print answer to debug
-    // console.log(newAnswer);
+    //console.log(newAnswer);
 
     return newAnswer;
   }
@@ -252,7 +252,7 @@ class Game extends React.Component{
           end: false
         });
 
-        console.log(this.state);
+        //console.log(this.state);
     }
   }
 }
